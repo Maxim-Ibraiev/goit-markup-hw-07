@@ -1,78 +1,79 @@
 /* modal window */
-  
-  .modal {
-    position: absolute;
-    top: 221px;
-      
-    width: 528px;
+
+.modal {
+  position: absolute;
+  top: 221px;
     
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 528px;
   
-    margin-left: 534px;
-    margin-right: 534pc;
-    padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 534px;
+  margin-right: 534pc;
+  padding: 40px;
+
+  background-color: white;
   
-    background-color: white;
-  }
-  
-  .modal-border {
+  &-border {
     padding-left: 42px;
   
     border: 1px solid var(--color-border-modal);
     border-radius: 4px;
   }
+}
+
+.comment textarea {
+  padding: 12px 16px;
+}
+
+.box-hidden {
+  position: absolute;
+
+  -webkit-appearance: none;
+  -moz-appearnce: none;
+  appearance: none;
+  border: none;
+  border-color: transparent;
+}
+
+.agreement {
+  position: relative;
+
+  margin-top: 20px;
+  padding-left: 24px;
   
-  .comment textarea {
-    padding: 12px 16px;
-  }
-  
-  .box-hidden {
-    position: absolute;
-  
-    -webkit-appearance: none;
-    -moz-appearnce: none;
-    appearance: none;
-    border: none;
-    border-color: transparent;
-  }
-  
-  .agreement {
-    position: relative;
-  
-    margin-top: 20px;
-    padding-left: 24px;
-  }
-  
-  .agreement-link {
+  &-link {
     color: var(--color-accent);
   }
-  
-  .custom-checkbox {
-    position: absolute;
-  
-    width: 15px;
-    height: 15px;
-  
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color var(--animation) var(--cubic-bezier), box-shadow  var(--animation) var(--cubic-bezier);
-  
-    background: #FFFFFF;
-    box-shadow: inset 0px 0px 0px 2px var(--color-title);
-    border-radius: 2px; 
-    background-size: contain;
-  }
-  
-  .box-hidden:checked + .custom-checkbox{
-    background-color: var(--color-accent);
-    border: none;
-    box-shadow: inset 0px 0px 0px 2px var(--color-accent);
-  }
-  
-  .modal input:not([type="checkbox"]) {
+}
+
+.custom-checkbox {
+  position: absolute;
+
+  width: 15px;
+  height: 15px;
+
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color var(--animation) var(--cubic-bezier), box-shadow  var(--animation) var(--cubic-bezier);
+
+  background: #FFFFFF;
+  box-shadow: inset 0px 0px 0px 2px var(--color-title);
+  border-radius: 2px; 
+  background-size: contain;
+}
+
+.box-hidden:checked + .custom-checkbox{
+  background-color: var(--color-accent);
+  border: none;
+  box-shadow: inset 0px 0px 0px 2px var(--color-accent);
+}
+
+.modal {
+  input:not([type="checkbox"]) {
     min-height: 40px;
     width: 448px;
   }
@@ -86,14 +87,8 @@
     min-height: 120px;
     resize: none;
   }
-  
-  .modal-label {
-    position: relative;
-  
-    margin-top: 28px;
-  }
-  
-  .modal svg.placeholder {
+
+   svg.placeholder {
     position: absolute;
   
     width: 18px;
@@ -104,53 +99,69 @@
   
     transform: translate(16px, -50%);
   }
-  
-  .modal .placeholder {
+
+  .placeholder {
     position: absolute;
   
     top: 50%;
     left: 0;
     transform: translate(42px, -50%);
   }
+}
+
+.modal-label {
+  position: relative;
+
+  margin-top: 28px;
   
-  .comment .placeholder {
-    top: 15px;
-  
-    animation: none;
-  
-    transition: transform var(--animation) var(--cubic-bezier);
-    transform: translateX(16px);
-  }
-  
-  .modal-label input:focus + svg,
-  .modal-label input:not(:placeholder-shown) + svg {
+  input:focus + svg,
+  input:not(:placeholder-shown) + svg {
     fill: var(--color-accent);
   }
   
-  .modal-label span {
+  span {
     animation: placeholder-reverse var(--animation) var(--cubic-bezier) forwards;
   }
-  
-  
-  .modal-label:focus-within span,
-  .modal-label input:not(:placeholder-shown) ~ span {
+
+  &:focus-within span,
+  input:not(:placeholder-shown) ~ span {
     animation: placeholder 500ms ease forwards;
   }
   
-  .modal-label input:placeholder-shown {
+  input:placeholder-shown {
     border: 1px solid var(--color-border-modal);
     outline: none;
   }
-  
-  .modal-label input:focus ,
-  .modal-label input:not(:placeholder-shown) {
+
+  input:focus ,
+  input:not(:placeholder-shown) {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
     outline: none;
   }
+
+  input,
+  textarea {
+    transition: border-color var(--animation) var(--cubic-bezier);
+  }
   
-  .comment:focus-within .placeholder, 
-  .comment textarea:not(:placeholder-shown) ~ span {
+  svg {
+    transition: fill var(--animation) var(--cubic-bezier);
+  }
+}
+  
+.comment {
+  .placeholder {
+    top: 15px;
+
+    animation: none;
+
+    transition: transform var(--animation) var(--cubic-bezier);
+    transform: translateX(16px);
+  }
+  
+  &:focus-within .placeholder, 
+  & textarea:not(:placeholder-shown) ~ span {
     animation: none;
   
     transform: translate(16px, -35px);
@@ -158,109 +169,101 @@
     color: var(--color-accent);
   } 
   
-  .modal-label svg {
-    transition: fill var(--animation) var(--cubic-bezier);
-  }
-  
-  .modal-label input,
-  .modal-label textarea {
-    transition: border-color var(--animation) var(--cubic-bezier);
-  }
-  
-  .comment textarea:focus,
-  .comment textarea:not(:placeholder-shown) {
+  textarea:focus,
+  textarea:not(:placeholder-shown) {
     border-color: var(--color-accent);
     outline: none;
   }
+}
+
+.icon-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 18px;
+  height: 18px;
+  }
+
+.modal-esc {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+
+  width: 30px;
+  height: 30px;
+
   
-  .icon-x {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.data-modal-close {
+  display: inline-block;
+  padding: 0;
+  border: none;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 1600px;
+  height: 2890px;
   
-    width: 18px;
-    height: 18px;
-    }
-  
-  .modal-esc {
-    position: absolute;
-    top: -9px;
-    right: -9px;
-  
-    width: 30px;
-    height: 30px;
-  
-    
-    border-radius: 50%;
-    background-color: var(--color-white);
-    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition:opacity var(--animation) var(--cubic-bezier);
+}
+
+@keyframes placeholder {
+  0% {
+  transform: translate(42px, -50%);
   }
   
-  .data-modal-close {
-    display: inline-block;
-    padding: 0;
-    border: none;
+  50% {
+    transform: translate(42px, -40px);
+    color: var(--color-accent);
+
+  }
+  100% {
+    transform: translate(16px, -40px);
+    color: var(--color-accent);
+  }
+}
+
+@keyframes placeholder-reverse {
+  0% {
+    transform: translate(16px, -40px);
+    color: var(--color-accent);
   }
   
-  .is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+  50% {
+    transform: translate(42px, -40px);
+    color: var(--color-accent);
   }
-  
-  .backdrop {
-    position: absolute;
-    top: -80px;
-    left: 0;
-    width: 1600px;
-    height: 2890px;
-    
-    background-color: rgba(0, 0, 0, 0.2);
-  
-    transition:opacity var(--animation) var(--cubic-bezier);
+  100% {
+    translate: (42px, -50%);
   }
-  
-  @keyframes placeholder {
-    0% {
-    transform: translate(42px, -50%);
-    }
-    
-    50% {
-      transform: translate(42px, -40px);
-      color: var(--color-accent);
-  
-    }
-    100% {
-      transform: translate(16px, -40px);
-      color: var(--color-accent);
-    }
-  }
-  
-  @keyframes placeholder-reverse {
-    0% {
-      transform: translate(16px, -40px);
-      color: var(--color-accent);
-    }
-    
-    50% {
-      transform: translate(42px, -40px);
-      color: var(--color-accent);
-    }
-    100% {
-      translate: (42px, -50%);
-    }
-  }
-  /* modal fonts */
-  
-  .modal-label {
-    letter-spacing: 0.01em;
-    line-height: 1.2;
-  }
-  
-  .modal b {
-    font-size: 20px;
-    line-height: 23px;
-  
-    color: var(--color-title);
-  }
+}
+/* modal fonts */
+
+.modal-label {
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.modal b {
+  font-size: 20px;
+  line-height: 23px;
+
+  color: var(--color-title);
+}
